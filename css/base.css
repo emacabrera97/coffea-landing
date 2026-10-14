@@ -88,3 +88,20 @@
     }
   }
 }
+
+  /* Íconos del sprite: .icon = de línea · .icon--fill = rellenos */
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .icon--fill {
+    fill: currentColor;
+    stroke: none;
+  }
