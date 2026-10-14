@@ -1,13 +1,11 @@
-/* layout.css — contenedor, franjas y espaciado de secciones */
+/* layout.css — contenedor, franjas y títulos de sección */
 
 @layer layout {
-  /* Ancho = pantalla menos 2 márgenes, con tope de 1444px y centrado */
   .container {
     width: min(100% - 2 * var(--gutter), var(--container));
     margin-inline: auto;
   }
 
-  /* Franja: bloque de ancho completo */
   .band {
     position: relative;
   }
@@ -16,28 +14,37 @@
     background-color: var(--color-sand);
   }
 
-  .band--bg {
-    background-color: var(--color-bg);
-  }
-
   .band--espresso {
     background-color: var(--color-espresso);
     color: var(--color-white);
   }
 
-  /* Secciones de contenido: la altura sigue al contenido (sin altura fija) */
-  .section {
-    padding-block: var(--space-8);
-  }
-
-  /* Título de sección (café, postres, testimonios) */
   .section__title {
     font-family: var(--font-display);
     font-size: var(--fs-h2);
     font-weight: 600;
+    line-height: 1.35;
     letter-spacing: var(--ls-h2);
     text-transform: uppercase;
     text-align: center;
     color: var(--color-espresso);
+  }
+
+  /* Página 404 */
+  .not-found {
+    padding-block: var(--space-16);
+    text-align: center;
+  }
+
+  .not-found h1 {
+    font-family: var(--font-display);
+    font-size: var(--fs-cta);
+    font-weight: 600;
+    line-height: var(--lh-cta);
+  }
+
+  .not-found p {
+    margin-block: var(--space-4) var(--space-8);
+    font-size: var(--fs-md);
   }
 }

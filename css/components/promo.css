@@ -1,0 +1,103 @@
+/* promo.css — franja "granos de café" */
+
+@layer components {
+  .promo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: var(--space-12);
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .promo__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-7);
+  }
+
+  .promo__title {
+    max-width: 23.25rem;
+    font-family: var(--font-display);
+    font-size: var(--fs-cta);
+    font-weight: 600;
+    line-height: var(--lh-cta);
+    color: var(--color-black);
+  }
+
+  .promo__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-width: 16.125rem;
+    min-height: 3.1875rem;
+    padding-inline: var(--space-6);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-espresso);
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: var(--fs-base);
+    font-weight: 500;
+    transition: transform var(--transition), background-color var(--transition);
+  }
+
+  .promo__button .icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* Imágenes decorativas laterales */
+  .promo__img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: none;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: multiply;
+  }
+
+  .promo__img--left {
+    left: 0;
+    width: min(32.5rem, 22vw);
+    mask-image: linear-gradient(to right, var(--color-black) 65%, transparent);
+  }
+
+  .promo__img--right {
+    right: 0;
+    width: min(31.4375rem, 28vw);
+    mask-image: linear-gradient(to left, var(--color-black) 65%, transparent);
+  }
+
+  @media (hover: hover) {
+    .promo__button:hover {
+      background-color: var(--color-muted);
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (min-width: 48em) {
+    .promo__img--left {
+      display: block;
+    }
+  }
+
+  @media (min-width: 64em) {
+    .promo {
+      min-height: 20.9375rem;
+      padding-block: 0;
+    }
+
+    .promo__img--left {
+      width: min(32.5rem, 28vw);
+    }
+
+    .promo__img--right {
+      display: block;
+    }
+  }
+}

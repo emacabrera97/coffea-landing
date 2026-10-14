@@ -1,7 +1,6 @@
 /* utilities.css — helpers de accesibilidad */
 
 @layer utilities {
-  /* Oculto a la vista, pero lo leen los lectores de pantalla */
   .visually-hidden,
   .sr-only {
     position: absolute;
@@ -15,7 +14,6 @@
     border: 0;
   }
 
-  /* "Saltar al contenido": aparece solo al enfocarlo con Tab */
   .skip-link {
     position: absolute;
     top: var(--space-2);

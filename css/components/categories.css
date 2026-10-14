@@ -1,0 +1,58 @@
+/* categories.css — franja de 4 categorías */
+
+@layer components {
+  .categories {
+    display: flex;
+    align-items: center;
+  }
+
+  .categories__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    justify-items: center;
+    padding-block: var(--space-10);
+  }
+
+  .categories__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--color-muted);
+    font-family: var(--font-ui);
+    font-size: var(--fs-md);
+    font-weight: 500;
+    text-align: center;
+    transition: color var(--transition);
+  }
+
+  .categories__icon {
+    width: 5.125rem;
+    height: 5.125rem;
+  }
+
+  @media (hover: hover) {
+    .categories__item:hover {
+      color: var(--color-espresso);
+    }
+  }
+
+  @media (min-width: 48em) {
+    .categories__list {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 64em) {
+    .categories {
+      min-height: 13.75rem;
+    }
+
+    .categories__list {
+      max-width: 52.8125rem;
+      padding-block: 0;
+    }
+  }
+}

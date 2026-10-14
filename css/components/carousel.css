@@ -1,0 +1,112 @@
+/* carousel.css — carrusel con scroll-snap (sin JavaScript) */
+
+@layer components {
+  .products {
+    padding-block: var(--space-8);
+  }
+
+  .products .section__title {
+    margin-bottom: var(--space-8);
+  }
+
+  .carousel {
+    position: relative;
+    display: flow-root;
+  }
+
+  /* El padding vertical deja lugar a la sombra del hover; el margen negativo lo compensa */
+  .carousel__viewport {
+    padding: var(--space-8) var(--gutter);
+    margin-block: calc(-1 * var(--space-8));
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: var(--gutter);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .carousel__viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .carousel__track {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  .carousel__item {
+    display: flex;
+    flex: 0 0 17.5rem;
+    scroll-margin-top: 20vh;
+    scroll-snap-align: start;
+  }
+
+  /* Flechas: solo desde 1024px */
+  .carousel__arrow {
+    display: none;
+  }
+
+  @media (min-width: 48em) {
+    .products .section__title {
+      margin-bottom: var(--space-12);
+    }
+  }
+
+  @media (min-width: 64em) {
+    .products .section__title {
+      margin-bottom: var(--space-16);
+    }
+
+    .carousel__viewport {
+      width: min(100% - 2 * var(--gutter), 92.25rem);
+      margin-inline: auto;
+      padding-inline: 0;
+      scroll-padding-inline: 0;
+    }
+
+    .carousel__item {
+      flex: 0 0 calc((100% - 3 * var(--space-1)) / 4);
+      max-width: 22.875rem;
+    }
+
+    .carousel__arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      display: grid;
+      align-items: center;
+      justify-items: center;
+      width: 4.4375rem;
+      height: 4.4375rem;
+      border: 1px solid var(--color-sand);
+      border-radius: var(--radius-pill);
+      background-color: var(--color-white);
+      color: var(--color-espresso);
+      transform: translateY(-50%);
+      transition: background-color var(--transition);
+    }
+
+    .carousel__arrow .icon {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .carousel__arrow--prev {
+      left: min(5rem, max(calc(var(--gutter) - 2.2rem), calc((100% - 92.25rem) / 2 - 2.2rem)));
+    }
+
+    .carousel__arrow--next {
+      right: min(5rem, max(calc(var(--gutter) - 2.2rem), calc((100% - 92.25rem) / 2 - 2.2rem)));
+    }
+
+    .carousel__arrow--prev .icon {
+      transform: scaleX(-1);
+    }
+  }
+
+  @media (min-width: 64em) and (hover: hover) {
+    .carousel__arrow:hover {
+      background-color: var(--color-sand);
+    }
+  }
+}
